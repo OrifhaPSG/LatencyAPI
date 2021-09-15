@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "/N8I7XwUp3s2m0+WewiNtqG4tqXBie2tX0GxbYoJ8BPzxXKR4/3hIMSfUZnEhbKnR3PIjZf6fBtSBz7jXlOzUg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\9903125407086\\source\\repos\\LatencyAPI\\LatencyAPI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\9903125407086\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.10.14\\microsoft.visualstudio.azure.containers.tools.targets.1.10.14.nupkg.sha512"
+  ],
+  "logs": []
+}
