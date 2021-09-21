@@ -11,6 +11,10 @@ namespace LatencyAPI.Services
     {
         private Container _pingContainer;
         private Container _collatorContainer;
+        public void setCollatorContainer(Container container)
+        {
+            _collatorContainer = container;
+        }
         public CosmosDbService(CosmosClient client, string db, string pingContainer, string collatorContainer)
         {
             this._pingContainer = client.GetContainer(db, pingContainer);
@@ -29,7 +33,8 @@ namespace LatencyAPI.Services
                 Timestamp = time,
                 UUID = uuid
             };
-            var result = await _collatorContainer.CreateItemAsync(log);
+            var result = await _collatorContainer.CreateItemAsync(log, null, null, new System.Threading.CancellationToken());
+
             if (!result.StatusCode.ToString().Equals("Created"))
             {
                 return null;

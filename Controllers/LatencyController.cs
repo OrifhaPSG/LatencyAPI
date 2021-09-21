@@ -15,18 +15,13 @@ using System.Threading.Tasks;
 namespace LatencyAPI.Controllers
 {
     [ApiController]
-    public class WeatherForecastController : ControllerBase
+    public class LatencyController : ControllerBase
     {
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
-
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ILogger<LatencyController> _logger;
         private readonly ICosmosDbService _cosmos;
         private readonly IConfiguration _config;
         private HttpClient http; 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger, ICosmosDbService cosmos, IConfiguration config)
+        public LatencyController(ILogger<LatencyController> logger, ICosmosDbService cosmos, IConfiguration config)
         {
             _logger = logger;
             _cosmos = cosmos;
@@ -41,6 +36,7 @@ namespace LatencyAPI.Controllers
             string uuid = HttpContext.Request.Query["uuid"];
             string originRegion = HttpContext.Request.Query["region"];
             string region = _config["Region"];
+
             var status = await  _cosmos.CreatePingLog(region, originRegion, uuid);
             
             return  status;
@@ -49,13 +45,21 @@ namespace LatencyAPI.Controllers
 
         [HttpGet]
         [Route("collator")]
-        public async Task<CollatorLog> Collate()
+        public async Task<ActionResult<CollatorLog>> Collate()
         {
             string uuid = System.Guid.NewGuid().ToString();
             string pingServiceUrl = _config["PingServiceUrl"];
             string region = _config["Region"];
             string urlParams = "?uuid=" + uuid + "&region=" + region;
-    
+            
+            if(pingServiceUrl == null)
+            {
+                return BadRequest("Ping Service Url not supplied");
+            }
+            if(region == null)
+            {
+                return BadRequest("Region not defined.");
+            }
             if (http.BaseAddress == null)
             {
                 http.BaseAddress = new Uri(pingServiceUrl);
@@ -71,7 +75,7 @@ namespace LatencyAPI.Controllers
                 var latency = (data.Timestamp - dateTime).TotalMilliseconds;
                 dateTime = DateTime.Now;
                 var result = await _cosmos.CreateCollatorLog(latency, region, dateTime, uuid);
-                return result;
+                return Ok(result);
 
             }
             return null;
