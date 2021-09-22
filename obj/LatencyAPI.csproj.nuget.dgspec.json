@@ -40,6 +40,18 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Hangfire": {
+              "target": "Package",
+              "version": "[1.7.25, )"
+            },
+            "Hangfire.AspNetCore": {
+              "target": "Package",
+              "version": "[1.7.25, )"
+            },
+            "Hangfire.Core": {
+              "target": "Package",
+              "version": "[1.7.25, )"
+            },
             "Microsoft.AspNet.Mvc": {
               "target": "Package",
               "version": "[5.2.7, )"
@@ -55,6 +67,14 @@
             "Newtonsoft.Json": {
               "target": "Package",
               "version": "[13.0.1, )"
+            },
+            "Quartz": {
+              "target": "Package",
+              "version": "[3.3.3, )"
+            },
+            "Quartz.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[3.3.3, )"
             }
           },
           "imports": [

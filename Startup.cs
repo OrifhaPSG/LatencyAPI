@@ -8,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Quartz;
+using Quartz.Impl;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -63,6 +65,18 @@ namespace LatencyAPI
             CosmosDbService cosmos = new CosmosDbService(client, db, pingContainer, collatorContainer);
 
             return cosmos;
+        }
+        public static async void StartScheduler()
+        {
+            IScheduler scheduler = await StdSchedulerFactory.GetDefaultScheduler();
+            await scheduler.Start();
+
+            IJobDetail job = JobBuilder.Create<CollatorJob>().Build();
+
+            ITrigger trigger = TriggerBuilder.Create().StartNow().WithSimpleSchedule(x => x.WithIntervalInSeconds(10).RepeatForever()).Build();
+            await scheduler.ScheduleJob(job, trigger);
+
+
         }
     }
 }

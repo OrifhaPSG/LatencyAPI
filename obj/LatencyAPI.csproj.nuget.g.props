@@ -30,5 +30,6 @@
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <PkgMicrosoft_VisualStudio_Azure_Containers_Tools_Targets Condition=" '$(PkgMicrosoft_VisualStudio_Azure_Containers_Tools_Targets)' == '' ">C:\Users\9903125407086\.nuget\packages\microsoft.visualstudio.azure.containers.tools.targets\1.10.14</PkgMicrosoft_VisualStudio_Azure_Containers_Tools_Targets>
+    <PkgHangfire_SqlServer Condition=" '$(PkgHangfire_SqlServer)' == '' ">C:\Users\9903125407086\.nuget\packages\hangfire.sqlserver\1.7.25</PkgHangfire_SqlServer>
   </PropertyGroup>
 </Project>
