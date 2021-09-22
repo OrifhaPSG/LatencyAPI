@@ -42,7 +42,7 @@ namespace LatencyAPI.Services
             return log;
         }
 
-        public async Task<PingLog> CreatePingLog(string region, string originRegion, string uuid)
+        public virtual async Task<PingLog> CreatePingLog(string region, string originRegion, string uuid)
         {
             //var sql = "SELECT * FROM c";
             //var iterator = _pingContainer.GetItemQueryIterator<dynamic>(sql);

@@ -31,12 +31,15 @@ namespace LatencyAPI.Controllers
 
         [HttpGet]
         [Route("ping")]
-        public async Task<ActionResult<PingLog>> Ping()
+        public virtual async Task<ActionResult<PingLog>> Ping()
         {
             string uuid = HttpContext.Request.Query["uuid"];
             string originRegion = HttpContext.Request.Query["region"];
             string region = _config["Region"];
-
+            if(uuid == null || originRegion == null || region == null)
+            {
+                return BadRequest("Invalid Input");
+            }
             var status = await  _cosmos.CreatePingLog(region, originRegion, uuid);
             
             return  status;

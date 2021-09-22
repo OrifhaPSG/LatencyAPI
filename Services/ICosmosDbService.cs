@@ -9,7 +9,7 @@ namespace LatencyAPI.Services
 {
     public interface ICosmosDbService
     {
-        Task<PingLog> CreatePingLog(string region, string originRegion, string uuid);
+        Task<PingLog>  CreatePingLog(string region, string originRegion, string uuid);
         Task<CollatorLog>  CreateCollatorLog(double latency, string region, DateTime time, string uuid);
         void setCollatorContainer(Container container);
     }

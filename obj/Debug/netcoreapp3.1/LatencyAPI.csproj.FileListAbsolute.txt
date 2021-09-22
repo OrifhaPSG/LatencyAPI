@@ -34,3 +34,10 @@ C:\Users\9903125407086\source\repos\LatencyAPI\bin\Debug\netcoreapp3.1\runtimes\
 C:\Users\9903125407086\source\repos\LatencyAPI\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Azure.Cosmos.ServiceInterop.dll
 C:\Users\9903125407086\source\repos\LatencyAPI\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\9903125407086\source\repos\LatencyAPI\obj\Debug\netcoreapp3.1\LatencyAPI.csproj.CopyComplete
+C:\Users\9903125407086\source\repos\LatencyAPI\bin\Debug\netcoreapp3.1\System.Web.Mvc.dll
+C:\Users\9903125407086\source\repos\LatencyAPI\bin\Debug\netcoreapp3.1\System.Web.Razor.dll
+C:\Users\9903125407086\source\repos\LatencyAPI\bin\Debug\netcoreapp3.1\System.Web.Helpers.dll
+C:\Users\9903125407086\source\repos\LatencyAPI\bin\Debug\netcoreapp3.1\System.Web.WebPages.Deployment.dll
+C:\Users\9903125407086\source\repos\LatencyAPI\bin\Debug\netcoreapp3.1\System.Web.WebPages.Razor.dll
+C:\Users\9903125407086\source\repos\LatencyAPI\bin\Debug\netcoreapp3.1\System.Web.WebPages.dll
+C:\Users\9903125407086\source\repos\LatencyAPI\bin\Debug\netcoreapp3.1\Microsoft.Web.Infrastructure.dll
