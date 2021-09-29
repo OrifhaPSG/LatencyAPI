@@ -24,19 +24,19 @@ namespace LatencyAPI
                 {
                     webBuilder.UseStartup<Startup>();
                 }).ConfigureServices((hostContext, services) => {
-                    services.AddQuartz(q =>
-                    {
-                        q.UseMicrosoftDependencyInjectionScopedJobFactory();
+//                     services.AddQuartz(q =>
+//                     {
+//                         q.UseMicrosoftDependencyInjectionScopedJobFactory();
 
-                        var jobKey = new JobKey("CollatorJob");
-                        q.AddJob<CollatorJob>(opts => opts.WithIdentity(jobKey));
+//                         var jobKey = new JobKey("CollatorJob");
+//                         q.AddJob<CollatorJob>(opts => opts.WithIdentity(jobKey));
 
-                        q.AddTrigger(opts => opts.ForJob(jobKey).WithIdentity("CollatorJob-Trigger").WithCronSchedule("0/5 * * * * ?"));
+//                         q.AddTrigger(opts => opts.ForJob(jobKey).WithIdentity("CollatorJob-Trigger").WithCronSchedule("0/5 * * * * ?"));
 
-                    });
-                    services.AddQuartzHostedService(
-                        q => q.WaitForJobsToComplete = true
-                        );
+//                     });
+               //     services.AddQuartzHostedService(
+                 //       q => q.WaitForJobsToComplete = true
+                   //     );
                 });
     }
 }
